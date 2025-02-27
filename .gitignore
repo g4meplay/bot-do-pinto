@@ -1,0 +1,38 @@
+# Ignorar arquivos de ambiente
+.env
+
+# Ignorar banco de dados SQLite
+*.sqlite3
+*.db
+
+# Ignorar arquivos de configuração do Discord
+config.json
+
+# Ignorar arquivos de cache do Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignorar diretórios de ambiente virtual
+venv/
+.venv/
+env/
+env.bak/
+venv.bak/
+
+# Ignorar arquivos de log
+*.log
+
+# Ignorar arquivos de build e distribuição
+build/
+dist/
+*.egg-info/
+
+# Ignorar arquivos de configuração do editor/IDE
+.vscode/
+.idea/
+*.swp
+
+# Ignorar arquivos de sistema operacional
+.DS_Store
+Thumbs.db
