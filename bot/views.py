@@ -28,7 +28,14 @@ class PaginatedUserRank(View):
     async def fetch_user_data(self):
         offset = (self.page - 1) * self.per_page
         with Session() as session:
-            users = session.query(User).order_by(User.max.desc()).offset(offset).limit(self.per_page).all()
+            media = (User.min + User.avg + User.max) / 3
+            users = (
+                session.query(User, media.label("media"))
+                .order_by(media.desc())
+                .offset(offset)
+                .limit(self.per_page)
+                .all()
+			)
         return users
 
     async def get_page_count(self):
@@ -46,7 +53,7 @@ class PaginatedUserRank(View):
             color=discord.Color.gold()
         )
 
-        for user in users:
+        for user, _ in users:
             guild = self.interaction.guild if self.interaction else self.channel.guild
             user_profile = guild.get_member(user.id) if guild else None
 
