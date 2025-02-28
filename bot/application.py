@@ -72,7 +72,7 @@ async def pinto(context: Context, broxa: float, meia_bomba: float, duro: float):
 
 @bot.command()
 async def pintos(ctx):
-    view = views.PaginatedUserRank(client=ctx.bot, channel=ctx.channel, per_page=2)
+    view = views.PaginatedUserRank(client=ctx.bot, channel=ctx.channel)
     await view.start()  # Inicia manualmente o processo
 
 @bot.event
